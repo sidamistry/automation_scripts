@@ -14,3 +14,9 @@ The top 5 commands will have 10 computes per line each and the last command will
 ### Purpose of this script is to extract files to be deleted from each node in a format that can be given as input to shell commands
 
 Usage: python3 extraction_script.py --file abc.txt
+
+## 3. mtu_edit_script.py
+
+### Purpose of this script is to edit mtu values in a yaml file with the use of script in order to prevent mistakes and save time
+
+Usage: python3 mtu_edit_Script.py --site-file=abc.yaml --site-type=large
