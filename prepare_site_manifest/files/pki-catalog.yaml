@@ -1,0 +1,18 @@
+---
+# The purpose of this file is to define the PKI certificates for the environment
+#
+# NOTE: When deploying a new site, this file should not be configured until
+# baremetal/nodes.yaml is complete.
+schema: promenade/PKICatalog/v1
+metadata:
+  schema: metadata/Document/v1
+  name: cluster-certificates
+  layeringDefinition:
+    abstract: false
+    layer: site
+  storagePolicy: cleartext
+data:
+  certificate_authorities:
+    kubernetes:
+      description: CA for Kubernetes components
+      certificates:

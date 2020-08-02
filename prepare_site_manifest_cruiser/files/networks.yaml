@@ -1,0 +1,195 @@
+---
+schema: 'drydock/Network/v1'
+metadata:
+  schema: 'metadata/Document/v1'
+  name: oob
+  layeringDefinition:
+    abstract: false
+    layer: site
+    parentSelector:
+      network_role: oob
+      topology: cruiser
+    actions:
+      - method: merge
+        path: .
+  storagePolicy: cleartext
+data:
+  cidr: 
+  routes:
+    - subnet: '0.0.0.0/0'
+      gateway: 
+      metric: 100
+  ranges:
+    - type: static
+      start: 
+      end: 
+...
+---
+schema: 'drydock/Network/v1'
+metadata:
+  schema: 'metadata/Document/v1'
+  name: pxe
+  layeringDefinition:
+    abstract: false
+    layer: site
+    parentSelector:
+      network_role: pxe
+      topology: cruiser
+    actions:
+      - method: merge
+        path: .
+  storagePolicy: cleartext
+data:
+  cidr: 
+  routes:
+    - subnet: 0.0.0.0/0
+      gateway: 
+      metric: 100
+  ranges:
+    - type: reserved
+      start: 
+      end: 
+    - type: static
+      start: 
+      end: 
+    - type: dhcp
+      start: 
+      end: 
+...
+---
+schema: 'drydock/Network/v1'
+metadata:
+  schema: 'metadata/Document/v1'
+  name: oam
+  layeringDefinition:
+    abstract: false
+    layer: site
+    parentSelector:
+      network_role: oam
+      topology: cruiser
+    actions:
+      - method: merge
+        path: .
+  storagePolicy: cleartext
+data:
+  cidr: 
+  routes:
+    - subnet: 0.0.0.0/0
+      gateway: 
+      metric: 100
+  ranges:
+    - type: reserved
+      start: 
+      end: 
+    - type: static
+      start: 
+      end: 
+...
+---
+schema: 'drydock/Network/v1'
+metadata:
+  schema: 'metadata/Document/v1'
+  name: storage
+  layeringDefinition:
+    abstract: false
+    layer: site
+    parentSelector:
+      network_role: storage
+      topology: cruiser
+    actions:
+      - method: merge
+        path: .
+  storagePolicy: cleartext
+data:
+  cidr: 
+  ranges:
+    - type: reserved
+      start: 
+      end: 
+    - type: static
+      start: 
+      end: 
+...
+---
+schema: 'drydock/Network/v1'
+metadata:
+  schema: 'metadata/Document/v1'
+  name: calico
+  layeringDefinition:
+    abstract: false
+    layer: site
+    parentSelector:
+      network_role: calico
+      topology: cruiser
+    actions:
+      - method: merge
+        path: .
+  storagePolicy: cleartext
+data:
+  cidr: 
+  ranges:
+    - type: reserved
+      start: 
+      end: 
+    - type: static
+      start: 
+      end: 
+...
+---
+schema: 'drydock/Network/v1'
+metadata:
+  schema: 'metadata/Document/v1'
+  name: overlay
+  layeringDefinition:
+    abstract: false
+    layer: site
+    parentSelector:
+      network_role: os-overlay
+      topology: cruiser
+    actions:
+      - method: merge
+        path: .
+  storagePolicy: cleartext
+data:
+  cidr: 
+  ranges:
+    - type: reserved
+      start: 
+      end: 
+    - type: static
+      start: 
+      end: 
+  routes:
+    - subnet: 0.0.0.0/0
+      gateway:
+  labels:
+    enabled: true
+...
+---
+schema: 'drydock/Network/v1'
+metadata:
+  schema: 'metadata/Document/v1'
+  name: routable
+  layeringDefinition:
+    abstract: false
+    layer: site
+    parentSelector:
+      network_role: os-routable
+      topology: cruiser
+    actions:
+      - method: merge
+        path: .
+  storagePolicy: cleartext
+data:
+  cidr: 
+  ranges:
+    - type: reserved
+      start: 
+      end: 
+  routes:
+    - subnet: 0.0.0.0/0
+      gateway: 
+      metric: 100
+  labels:
+    enabled: true
+...

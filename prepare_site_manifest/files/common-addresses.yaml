@@ -1,0 +1,74 @@
+---
+schema: pegleg/CommonAddresses/v1
+metadata:
+  schema: metadata/Document/v1
+  replacement: true
+  name: common-addresses
+  layeringDefinition:
+    abstract: false
+    layer: site
+    parentSelector:
+      name: common-addresses-global
+    actions:
+      - method: replace
+        path: .dns.upstream_servers
+      - method: merge
+        path: .
+  storagePolicy: cleartext
+data:
+  calico:
+    ip_autodetection_method: interface=bond1.04
+    etcd:
+      service_ip: 10.11.11.0
+    ip_rule:
+      gateway: 
+    bgp:
+      ipv4:
+        public_service_cidr: 
+        ingress_vip: 
+        maas_vip: 
+        peers:
+          - 
+          - 
+  dns:
+    service_ip: 10.11.12.0 
+    upstream_servers:
+      - a.b.c.d
+      - e.f.g.h
+      - i.j.k.l
+    upstream_servers_joined: a.b.c.d,e.f.g.h,i.j.k.l
+    node_domain: 
+    ingress_domain: 
+  genesis:
+    hostname: 
+    ip: 
+    oob: 
+  bootstrap:
+    ip: 
+  kubernetes:
+    api_service_ip: 10.11.13.0
+    etcd_service_ip: 10.12.0.2
+    pod_cidr: 10.13.0.0/16
+    service_cidr: 10.14.0.0/16
+  masters:
+    - hostname: 
+    - hostname: 
+    - hostname: 
+  ntp:
+    servers_joined: 'ghi.xyz.eee.com,def.xyz.ccc.com,abc.xyz.bbb.com'
+    servers:
+      - 'ghi.xyz.eee.com'
+      - 'def.xyz.ccc.com'
+      - 'abc.xyz.bbb.com'
+  ldap:
+    username: ""
+  storage:
+    ceph:
+      public_cidr: 
+      cluster_cidr: 
+  neutron:
+    tunnel_device: 'bond1.05'
+    external_iface: 'bond1'
+  openvswitch:
+    external_iface: 'bond1'
+...

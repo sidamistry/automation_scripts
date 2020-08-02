@@ -1,0 +1,20 @@
+---
+# High-level pegleg site definition file
+schema: pegleg/SiteDefinition/v1
+metadata:
+  schema: metadata/Document/v1
+  layeringDefinition:
+    abstract: false
+    layer: site
+  name:
+  storagePolicy: cleartext
+data:
+  site_type: seaworthy
+  repositories:
+    global:
+      revision:
+      url: ssh://servera//site-manifests
+    secrets:
+      revision: master
+      url:
+...
